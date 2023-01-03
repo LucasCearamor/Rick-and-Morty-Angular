@@ -11,6 +11,7 @@ export class HeaderComponent {
 
   dados: any = [];
   page: any = 1;
+  episodes: any = [];
 
   constructor(private APIService: APIService) { }
 
@@ -37,12 +38,13 @@ export class HeaderComponent {
   getCharacters(page: number) {
     this.page = page;
     this.APIService.getCharacters(page).subscribe(
-        (data) => {
-          this.dados = data;
-        },
-        (error) => {
-          console.log(error);
-        }
-      )
+      (data) => {
+        this.dados = data;
+      }
+    )
+  }
+
+  getEpisodes(ep: any) {
+    return this.episodes = ep.episode;
   }
 }
