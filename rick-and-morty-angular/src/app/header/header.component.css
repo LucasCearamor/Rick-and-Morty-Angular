@@ -4,6 +4,12 @@
   font-family: 'Ramabhadra', sans-serif;
 }
 
+.flex-box{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
 .flex-card{
   display: flex;
   flex-direction: row;
@@ -25,18 +31,18 @@
   justify-content: center;
 }
 .img-content{
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
 }
 
-.paginate-box{
+/* .paginate-box{
   display: flex;
-  justify-content: space-around;
-}
-
+  justify-content: space-around; */
+/* } */
+/*
 .paginate-button{
   margin-left: 30px;
-}
+} */
 
 .Alive{
   color: rgb(14, 173, 0);
