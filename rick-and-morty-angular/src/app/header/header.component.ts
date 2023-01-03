@@ -24,8 +24,8 @@ export class HeaderComponent {
       return 'Alive';
     }
 
-    if (status == 'unknown') {
-      return 'unknown';
+    if (status == 'Unknown') {
+      return 'Unknown';
     }
 
     if (status == 'Dead') {

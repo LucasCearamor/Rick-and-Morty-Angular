@@ -1,30 +1,26 @@
 <div class="flex-card"  *ngFor="let d of dados.results">
   <div class="box-left">
-    <img src="{{d.image}}" alt="" width="200px" height="200px">
-  </div>
-  <div class="box-right {{status(d.status)}}">
-    <table>
-      <tr>
-        <td>name: {{d.name}}</td>
-      </tr>
-      <tr>
-        <td>specie: {{d.species}}</td>
-      </tr>
-      <tr>
-        <td>status: {{d.status}}</td>
-      </tr>
-      <tr>
-        <td>origin: {{d.location.name}}</td>
-      </tr>
-    </table>
+    <mat-card class="mat-card">
+      <mat-card-header>
+        <mat-card-title class="card-title">{{d.name}}</mat-card-title>
+        <mat-card-subtitle class="card-subtitle">
+          <div class="card-subtitle-items">
+            specie:   {{d.species}}
+          </div>
+          <div class="card-subtitle-items {{status(d.status)}}">
+            status: {{d.status}}
+          </div>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="card-content">
+        <img mat-card-image src="{{d.image}}" class="img-content" alt="">
+        <p>origin: {{d.location.name}}</p>
+        <p>gender: {{d.gender}}</p>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>
-
 <div class="paginate-box">
-  <button class="paginate-button" *ngIf="page > 1" (click)="getCharacters(page-1)">anterior</button>
-  <button class="paginate-button" *ngIf="page < dados.info.pages" (click)="getCharacters(page+1)">próximo</button>
-  <button mat-fab extended>
-    Home
-  </button>
-
+  <button mat-raised-button color="primary" class="paginate-button" *ngIf="page > 1" (click)="getCharacters(page-1)">anterior</button>
+  <button mat-raised-button color="primary" class="paginate-button" *ngIf="page < dados.info.pages" (click)="getCharacters(page+1)">próximo</button>
 </div>
