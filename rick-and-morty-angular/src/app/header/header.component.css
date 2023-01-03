@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Prosto+One&display=swap');
+
+*{
+  font-family: 'Prosto One', cursive;
+}
+
+.flex-card{
+  display: flex;
+  flex-direction: row;
+  padding: 5%;
+}
+
+.box-left{
+  padding-right: 5%;
+}
+
+.box-right{
+  padding: 2%;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+.Alive{
+  background-color: rgb(0, 255, 98);
+}
+
+.unknown{
+  background-color: rgb(110, 110, 110);
+}
+
+.Dead{
+  background-color: rgb(255, 0, 0);
+}
+
+.paginate-box{
+  display: flex;
+  flex-direction: row;
+  padding: 5%;
+}
+
+.paginate-button{
+  background-color: #44ff4a;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 3%;
+}
+
+.paginate-button:hover {
+  box-shadow: 0 9px 12px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

@@ -1,1 +1,30 @@
-<p>header works!</p>
+<div class="flex-card"  *ngFor="let d of dados.results">
+  <div class="box-left">
+    <img src="{{d.image}}" alt="" width="200px" height="200px">
+  </div>
+  <div class="box-right {{status(d.status)}}">
+    <table>
+      <tr>
+        <td>name: {{d.name}}</td>
+      </tr>
+      <tr>
+        <td>specie: {{d.species}}</td>
+      </tr>
+      <tr>
+        <td>status: {{d.status}}</td>
+      </tr>
+      <tr>
+        <td>origin: {{d.location.name}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="paginate-box">
+  <button class="paginate-button" *ngIf="page > 1" (click)="getCharacters(page-1)">anterior</button>
+  <button class="paginate-button" *ngIf="page < dados.info.pages" (click)="getCharacters(page+1)">próximo</button>
+  <button mat-fab extended>
+    Home
+  </button>
+
+</div>
