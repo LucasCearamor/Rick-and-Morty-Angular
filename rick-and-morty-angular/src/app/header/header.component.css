@@ -10,11 +10,6 @@
   padding: 5%;
 }
 
-.card-title{
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .card-subtitle{
   display: flex;
   justify-content: space-around;
@@ -22,7 +17,6 @@
 }
 .card-subtitle-items{
   margin-left: 30px;
-
 }
 
 .card-content{
