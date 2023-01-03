@@ -6,11 +6,11 @@ import { Injectable } from '@angular/core';
 })
 export class APIService {
 
-  urlCharacters = 'https://rickandmortyapi.com/api/character';
+  urlCharacters = 'https://rickandmortyapi.com/api/character/';
 
-  constructor(private http: HttpClient ) { }
+  constructor(private http: HttpClient) { }
 
-  public getCharacters() {
-    return this.http.get(`${this.urlCharacters}`)
+  public getCharacters(page:any) {
+    return this.http.get(`${this.urlCharacters}/?page=${page}`)
   }
 }

@@ -10,19 +10,39 @@ import { APIService } from 'src/app/services/api.service';
 export class HeaderComponent {
 
   dados: any = [];
+  page: any = 1;
 
-  constructor(private APIService: APIService ) {}
+  constructor(private APIService: APIService) { }
 
-  ngOnInit(){
-    this.APIService.getCharacters().subscribe(
-      (data) => {
-        this.dados = data;
-        console.log(this.dados);
+  ngOnInit() {
+    this.getCharacters(this.page);
+  }
 
-      },
-      (error) => {
-        console.log(error);
-      }
-    )
+  status(status: any) {
+
+    if (status == 'Alive') {
+      return 'Alive';
+    }
+
+    if (status == 'Unknown') {
+      return 'Unknown';
+    }
+
+    if (status == 'Dead') {
+      return 'Dead';
+    }
+    return;
+  }
+
+  getCharacters(page: number) {
+    this.page = page;
+    this.APIService.getCharacters(page).subscribe(
+        (data) => {
+          this.dados = data;
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
   }
 }
