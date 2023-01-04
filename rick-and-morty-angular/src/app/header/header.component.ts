@@ -45,6 +45,6 @@ export class HeaderComponent {
   }
 
   getEpisodes(ep: any) {
-    return this.episodes = ep.episode;
+    this.episodes = ep.episode;
   }
 }
