@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from 'src/app/services/api.service';
+import {MatDialog} from '@angular/material/dialog';
+import { EpisodesDialogComponent } from '../episodes-dialog/episodes-dialog.component';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +16,10 @@ export class HeaderComponent {
   page: any = 1;
   episodes: any = [];
 
-  constructor(private APIService: APIService) { }
+  constructor(
+    private APIService: APIService,
+    public Dialog: MatDialog,
+  ) {}
 
   ngOnInit() {
     this.getCharacters(this.page);
@@ -46,5 +52,12 @@ export class HeaderComponent {
 
   getEpisodes(ep: any) {
     this.episodes = ep.episode;
+  }
+
+  openDialog() {
+    this.Dialog.open(EpisodesDialogComponent,{})
+    data: {
+
+    };
   }
 }
