@@ -26,7 +26,6 @@ export class HeaderComponent {
   }
 
   status(status: any) {
-
     if (status == 'Alive') {
       return 'Alive';
     }
@@ -50,14 +49,12 @@ export class HeaderComponent {
     )
   }
 
-  getEpisodes(ep: any) {
-    this.episodes = ep.episode;
+  openDialog(ep: any) {
+    this.Dialog.open(EpisodesDialogComponent, {
+      data: {
+        episodes: ep
+      }
+    });
   }
 
-  openDialog() {
-    this.Dialog.open(EpisodesDialogComponent,{})
-    data: {
-
-    };
-  }
 }
