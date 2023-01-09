@@ -1,12 +1,8 @@
-<table>
-  <thead *ngFor="let e of data.episodes">
-    <tr>
-      <th>{{e}}</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Episodio 1</th>
-    </tr>
-  </tbody>
-</table>
+<h1 mat-dialog-title>Episodes</h1>
+<div mat-dialog-content>
+  <ul>
+    <li *ngFor="let e of episodes">
+       {{e.name}}
+    </li>
+  </ul>
+</div>
