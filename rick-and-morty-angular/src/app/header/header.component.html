@@ -16,7 +16,7 @@
         <img mat-card-image src="{{d.image}}" class="img-content" alt="">
         <p>origin: {{d.location.name}}</p>
         <p>gender: {{d.gender}}</p>
-        <button mat-button (click)="getEpisodes(d)">Episodes</button>
+        <button mat-button (click)="openDialog(d.episode)">Episodes</button>
       </mat-card-content>
     </mat-card>
   </div>
