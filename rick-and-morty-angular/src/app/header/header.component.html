@@ -20,8 +20,12 @@
       </mat-card-content>
     </mat-card>
   </div>
-  <div class="paginate-box">
-    <button mat-raised-button color="primary" class="paginate-button" *ngIf="page > 1" (click)="getCharacters(page-1)">anterior</button>
-    <button mat-raised-button color="primary" class="paginate-button" *ngIf="page < dados.info.pages" (click)="getCharacters(page+1)">próximo</button>
-  </div>
+</div>
+<div class="paginate-box">
+  <button mat-raised-button class="paginate-button" *ngIf="page > 1" (click)="getCharacters(page-1)">
+    <span class="material-icons md-18">keyboard_double_arrow_left</span>
+  </button>
+  <button mat-raised-button class="paginate-button" *ngIf="page < dados.info.pages" (click)="getCharacters(page+1)">
+    <span class="material-icons md-18">keyboard_double_arrow_right</span>
+  </button>
 </div>
