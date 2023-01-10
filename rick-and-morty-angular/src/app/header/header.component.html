@@ -1,5 +1,9 @@
+<div class="stars">
+  <div class="twinkling">
+  </div>
+</div>
 <div class="flex-box">
-  <div class="flex-card"  *ngFor="let d of dados.results">
+  <div class="flex-card" *ngFor="let d of dados.results">
     <mat-card class="mat-card">
       <mat-card-header>
         <mat-card-title class="card-title">{{d.name}}</mat-card-title>
@@ -26,6 +30,6 @@
     <span class="material-icons md-18">keyboard_double_arrow_left</span>
   </button>
   <button mat-raised-button class="paginate-button" *ngIf="page < dados.info.pages" (click)="getCharacters(page+1)">
-    <span class="material-icons md-18">keyboard_double_arrow_right</span>
-  </button>
+      <span class="material-icons md-18">keyboard_double_arrow_right</span>
+    </button>
 </div>
