@@ -30,14 +30,11 @@ export class HeaderComponent {
       return 'Alive';
     }
 
-    if (status == 'Unknown') {
-      return 'Unknown';
-    }
-
     if (status == 'Dead') {
       return 'Dead';
     }
-    return;
+
+    return 'Unknown';
   }
 
   getCharacters(page: number) {
