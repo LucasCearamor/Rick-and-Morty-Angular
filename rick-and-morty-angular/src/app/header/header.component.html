@@ -1,5 +1,8 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <div class="stars">
   <div class="twinkling">
+    <div class="clouds">
+    </div>
   </div>
 </div>
 <div class="flex-box">
@@ -11,13 +14,18 @@
           <div class="card-subtitle-items">
             specie: {{d.species}}
           </div>
-          <div class="card-subtitle-items {{status(d.status)}}">
+          <div class="card-subtitle-items">
             status: {{d.status}}
+          </div>
+          <div class="card-subtitle-items">
+            <span class="material-symbols-outlined" style="width: 2px;">
+              {{statusIcon(d.status)}}
+            </span>
           </div>
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content class="card-content">
-        <img mat-card-image src="{{d.image}}" class="img-content" alt="">
+        <img mat-card-image src="{{d.image}}" class="img-content" [class.imgDeath]="d.status == 'Dead'" alt="">
         <p>origin: {{d.location.name}}</p>
         <p>gender: {{d.gender}}</p>
         <button mat-button (click)="openDialog(d.episode)">Episodes</button>

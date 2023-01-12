@@ -54,4 +54,16 @@ export class HeaderComponent {
     });
   }
 
+  statusIcon(status: any) {
+    if (status == 'Alive') {
+      return 'sentiment_very_satisfied';
+    }
+
+    if (status == 'Dead') {
+      return 'sentiment_very_dissatisfied';
+    }
+
+    return 'sentiment_neutral';
+  }
+
 }
