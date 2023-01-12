@@ -4,8 +4,6 @@
   font-family: 'Ramabhadra', sans-serif;
 }
 
-
-
 .stars, .twinkling, .clouds {
   position: fixed;
 	display:block;
@@ -59,6 +57,7 @@
 
 .card-subtitle{
   display: flex;
+  flex-direction: row;
   justify-content: center;
   flex-wrap: nowrap;
 }
@@ -76,6 +75,11 @@
 .img-content{
   width: 300px;
   height: 300px;
+}
+
+.imgDeath {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
 .paginate-box{
@@ -106,3 +110,4 @@
 .background {
   background-color: rgb(0, 0, 0);
 }
+
