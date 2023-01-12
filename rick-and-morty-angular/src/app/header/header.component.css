@@ -57,13 +57,13 @@
 
 .card-subtitle{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   flex-wrap: nowrap;
 }
 
 .card-subtitle-items{
-  margin-left: 25px;
+  margin-left: 30px;
 }
 
 .card-content{

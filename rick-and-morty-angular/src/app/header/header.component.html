@@ -14,13 +14,11 @@
           <div class="card-subtitle-items">
             specie: {{d.species}}
           </div>
-          <div class="card-subtitle-items">
-            status: {{d.status}}
+          <div class="card-subtitle-items {{status(d.status)}}">
+            status:
           </div>
-          <div class="card-subtitle-items">
-            <span class="material-symbols-outlined" style="width: 2px;">
-              {{statusIcon(d.status)}}
-            </span>
+          <div class="card-subtitle-items {{status(d.status)}}">
+            <span class="material-symbols-outlined">{{statusIcon(d.status)}}</span>
           </div>
         </mat-card-subtitle>
       </mat-card-header>
