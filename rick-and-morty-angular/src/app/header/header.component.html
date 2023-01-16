@@ -3,17 +3,23 @@
 <p>
   <mat-toolbar class="search">
     <span>Rick And Morty</span>
-    <form>
-      <mat-form-field class="input-search">
-        <mat-label>Search</mat-label>
-        <input matInput placeholder="Ex. Rick Sanchez..." name="search" [(ngModel)]="searchText">
-      </mat-form-field>
-      <button mat-button>
-        <span class="material-symbols-outlined">search</span>
-      </button>
-    </form>
+    <mat-form-field class="input-search">
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Ex. Rick Sanchez..." name="search" [(ngModel)]="searchText">
+    </mat-form-field>
+    <button mat-button>
+      <span class="material-symbols-outlined">search</span>
+    </button>
+  </mat-toolbar>
+  <mat-toolbar>
+    <table>
+      <tr *ngFor="let name of dados.results.name | search: searchText.value">
+        <td></td>
+      </tr>
+    </table>
   </mat-toolbar>
 </p>
+
 
 <div class="flex-box">
   <div class="flex-card" *ngFor="let d of dados.results">
