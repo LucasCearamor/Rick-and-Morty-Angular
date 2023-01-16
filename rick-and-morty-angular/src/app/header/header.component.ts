@@ -15,6 +15,7 @@ export class HeaderComponent {
   dados: any = [];
   page: any = 1;
   episodes: any = [];
+  searchText: any;
 
   constructor(
     private APIService: APIService,
