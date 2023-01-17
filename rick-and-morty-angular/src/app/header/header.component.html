@@ -1,41 +1,63 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<div class="stars">
-  <div class="twinkling">
-    <div class="clouds">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <p>
+    <mat-toolbar class="search">
+      <span>Rick And Morty</span>
+
+      <mat-form-field class="input-search">
+        <mat-label>Search</mat-label>
+
+        <input matInput placeholder="Ex. Rick Sanchez..." name="search" [(ngModel)]="searchtext">
+      </mat-form-field>
+
+      <button mat-button>
+        <span class="material-symbols-outlined" (click)="getCharacters(page,searchtext)">search</span>
+      </button>
+    </mat-toolbar>
+  </p>
+
+  <div class="flex-box">
+    <div class="flex-card" *ngFor="let d of dados.results">
+      <mat-card class="mat-card">
+        <mat-card-header>
+          <mat-card-title class="card-title">{{d.name}}</mat-card-title>
+
+          <mat-card-subtitle class="card-subtitle">
+            <div class="card-subtitle-items">
+              specie: {{d.species}}
+            </div>
+
+            <div class="card-subtitle-items {{status(d.status)}}">
+              status:
+            </div>
+
+            <div class="card-subtitle-items {{status(d.status)}}">
+              <span class="material-symbols-outlined">{{statusIcon(d.status)}}</span>
+            </div>
+          </mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content class="card-content">
+          <img mat-card-image src="{{d.image}}" class="img-content" [class.imgDeath]="d.status == 'Dead'" alt="">
+
+          <p>origin: {{d.location.name}}</p>
+
+          <p>gender: {{d.gender}}</p>
+
+          <button mat-button (click)="openDialog(d.episode)">Episodes</button>
+        </mat-card-content>
+      </mat-card>
     </div>
   </div>
-</div>
-<div class="flex-box">
-  <div class="flex-card" *ngFor="let d of dados.results">
-    <mat-card class="mat-card">
-      <mat-card-header>
-        <mat-card-title class="card-title">{{d.name}}</mat-card-title>
-        <mat-card-subtitle class="card-subtitle">
-          <div class="card-subtitle-items">
-            specie: {{d.species}}
-          </div>
-          <div class="card-subtitle-items {{status(d.status)}}">
-            status:
-          </div>
-          <div class="card-subtitle-items {{status(d.status)}}">
-            <span class="material-symbols-outlined">{{statusIcon(d.status)}}</span>
-          </div>
-        </mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content class="card-content">
-        <img mat-card-image src="{{d.image}}" class="img-content" [class.imgDeath]="d.status == 'Dead'" alt="">
-        <p>origin: {{d.location.name}}</p>
-        <p>gender: {{d.gender}}</p>
-        <button mat-button (click)="openDialog(d.episode)">Episodes</button>
-      </mat-card-content>
-    </mat-card>
-  </div>
-</div>
-<div class="paginate-box">
-  <button mat-raised-button class="paginate-button" *ngIf="page > 1" (click)="getCharacters(page-1)">
-    <span class="material-icons md-18">keyboard_double_arrow_left</span>
-  </button>
-  <button mat-raised-button class="paginate-button" *ngIf="page < dados.info.pages" (click)="getCharacters(page+1)">
-      <span class="material-icons md-18">keyboard_double_arrow_right</span>
+
+  <div class="paginate-box">
+    <button mat-raised-button class="paginate-button" *ngIf="page > 1" (click)="getCharacters(page-1, searchtext)">
+      <span class="material-icons md-18">keyboard_double_arrow_left</span>
     </button>
-</div>
+
+    <button mat-raised-button class="paginate-button" *ngIf="page < dados.info.pages" (click)="getCharacters(page+1, searchtext)">
+        <span class="material-icons md-18">keyboard_double_arrow_right</span>
+      </button>
+  </div>
+

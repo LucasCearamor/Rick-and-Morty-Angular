@@ -13,8 +13,10 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 export class HeaderComponent {
 
   dados: any = [];
-  page: any = 1;
+  page: number = 1;
   episodes: any = [];
+  searchData: any = [];
+  searchtext: string = "";
 
   constructor(
     private APIService: APIService,
@@ -22,7 +24,7 @@ export class HeaderComponent {
   ) {}
 
   ngOnInit() {
-    this.getCharacters(this.page);
+    this.getCharacters(this.page, this.searchtext);
   }
 
   status(status: any) {
@@ -37,11 +39,14 @@ export class HeaderComponent {
     return 'Unknown';
   }
 
-  getCharacters(page: number) {
+  getCharacters(page: number, name: string) {
     this.page = page;
-    this.APIService.getCharacters(page).subscribe(
+    this.searchtext = name;
+    this.APIService.getCharacters(page,name).subscribe(
       (data) => {
         this.dados = data;
+        console.log(this.dados);
+
       }
     )
   }
