@@ -23,7 +23,6 @@
   padding: 5%;
   width: 400px;
   height: 630px;
-
 }
 
 .card-subtitle{
@@ -63,7 +62,7 @@
 .paginate-button{
   margin-left: 30px;
 }
-  
+
 .Alive{
   color: rgb(14, 173, 0);
 }
