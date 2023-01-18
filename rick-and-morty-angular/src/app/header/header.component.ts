@@ -39,6 +39,14 @@ export class HeaderComponent {
     return 'Unknown';
   }
 
+  backToTop() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    })
+  }
+
   getCharacters(page: number, name: string) {
     this.page = page;
     this.searchtext = name;
@@ -46,9 +54,9 @@ export class HeaderComponent {
       (data) => {
         this.dados = data;
         console.log(this.dados);
-
       }
     )
+    this.backToTop();
   }
 
   openDialog(ep: any) {
