@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { APIService } from 'src/app/services/api.service';
 import {MatDialog} from '@angular/material/dialog';
 import { EpisodesDialogComponent } from '../episodes-dialog/episodes-dialog.component';
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +15,7 @@ export class HeaderComponent {
   page: number = 1;
   episodes: any = [];
   searchData: any = [];
+  error: boolean = false;
   searchtext: string = "";
 
   constructor(
@@ -50,10 +50,25 @@ export class HeaderComponent {
   getCharacters(page: number, name: string) {
     this.page = page;
     this.searchtext = name;
+
     this.APIService.getCharacters(page,name).subscribe(
       (data) => {
+        if (this.error = true) {
+          this.error = false;
+        }
+
         this.dados = data;
-        console.log(this.dados);
+      },
+      
+      (error) => {
+        this.error = true;
+        
+        this.APIService.getCharacters(page,'').subscribe(
+          (n) => {
+            this.dados = n;
+          }
+        );
+
       }
     )
     this.backToTop();
@@ -78,5 +93,4 @@ export class HeaderComponent {
 
     return 'sentiment_neutral';
   }
-
 }

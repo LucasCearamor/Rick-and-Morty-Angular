@@ -62,8 +62,6 @@
 
 .paginate-button{
   margin-left: 30px;
-  color: rgb(14, 173, 0);
-
 }
 
 .Alive{
@@ -80,5 +78,21 @@
 
 .background {
   background-color: rgb(0, 0, 0);
+}
+
+.flex-error {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.error-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 30%;
+  color: aliceblue;
+  background: rgb(255, 65, 65);
+  opacity: 0.7;
 }
 

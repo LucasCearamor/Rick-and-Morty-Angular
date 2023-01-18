@@ -11,11 +11,18 @@
         <input matInput placeholder="Ex. Rick Sanchez..." name="search" [(ngModel)]="searchtext">
       </mat-form-field>
 
-      <button mat-button>
-        <span class="material-symbols-outlined" (click)="getCharacters(0,searchtext)">search</span>
+      <button mat-button (click)="getCharacters(1,searchtext)">
+        <span class="material-symbols-outlined">search</span>
       </button>
     </mat-toolbar>
   </p>
+
+  <div class="flex-error">
+    <div class="error-search" *ngIf="error == true">
+      <h1>Nenhum Resultado Encontrado</h1>
+      <span class="material-symbols-outlined">sms_failed</span>
+    </div>
+  </div>
 
   <div class="flex-box">
     <div class="flex-card" *ngFor="let d of dados.results">
