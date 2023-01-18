@@ -17,6 +17,7 @@ import { SearchComponent } from './search/search.component';
 import { BackgroundComponent } from './header/background/background.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatInputModule} from '@angular/material/input';
+import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {MatInputModule} from '@angular/material/input';
     HeaderComponent,
     EpisodesDialogComponent,
     SearchComponent,
-    BackgroundComponent
+    BackgroundComponent,
+    ErrorDialogComponent
   ],
   imports: [
     BrowserModule,

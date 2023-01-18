@@ -17,13 +17,6 @@
     </mat-toolbar>
   </p>
 
-  <div class="flex-error">
-    <div class="error-search" *ngIf="error == true">
-      <h1>Nenhum Resultado Encontrado</h1>
-      <span class="material-symbols-outlined">sms_failed</span>
-    </div>
-  </div>
-
   <div class="flex-box">
     <div class="flex-card" *ngFor="let d of dados.results">
       <mat-card class="mat-card">
@@ -52,7 +45,7 @@
 
           <p>gender: {{d.gender}}</p>
 
-          <button mat-button (click)="openDialog(d.episode)">Episodes</button>
+          <button mat-button (click)="openDialogEpisodes(d.episode)">Episodes</button>
         </mat-card-content>
       </mat-card>
     </div>

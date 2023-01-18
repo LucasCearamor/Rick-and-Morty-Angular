@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { APIService } from 'src/app/services/api.service';
 import {MatDialog} from '@angular/material/dialog';
 import { EpisodesDialogComponent } from '../episodes-dialog/episodes-dialog.component';
+import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-header',
@@ -62,7 +63,8 @@ export class HeaderComponent {
       
       (error) => {
         this.error = true;
-        
+        this.openDialogError(this.error);
+
         this.APIService.getCharacters(page,'').subscribe(
           (n) => {
             this.dados = n;
@@ -74,7 +76,7 @@ export class HeaderComponent {
     this.backToTop();
   }
 
-  openDialog(ep: any) {
+  openDialogEpisodes(ep: any) {
     this.Dialog.open(EpisodesDialogComponent, {
       data: {
         episodes: ep
@@ -82,6 +84,11 @@ export class HeaderComponent {
     });
   }
 
+  openDialogError(error: boolean) {
+    if (error == true) {
+      this.Dialog.open(ErrorDialogComponent, {});
+    }
+  }
   statusIcon(status: any) {
     if (status == 'Alive') {
       return 'sentiment_very_satisfied';
