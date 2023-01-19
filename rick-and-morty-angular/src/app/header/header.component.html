@@ -11,8 +11,8 @@
         <input matInput placeholder="Ex. Rick Sanchez..." name="search" [(ngModel)]="searchtext">
       </mat-form-field>
 
-      <button mat-button>
-        <span class="material-symbols-outlined" (click)="getCharacters(0,searchtext)">search</span>
+      <button mat-button (click)="getCharacters(1,searchtext)">
+        <span class="material-symbols-outlined">search</span>
       </button>
     </mat-toolbar>
   </p>
@@ -45,7 +45,7 @@
 
           <p>gender: {{d.gender}}</p>
 
-          <button mat-button (click)="openDialog(d.episode)">Episodes</button>
+          <button mat-button (click)="openDialogEpisodes(d.episode)">Episodes</button>
         </mat-card-content>
       </mat-card>
     </div>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { APIService } from 'src/app/services/api.service';
 import {MatDialog} from '@angular/material/dialog';
 import { EpisodesDialogComponent } from '../episodes-dialog/episodes-dialog.component';
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +16,7 @@ export class HeaderComponent {
   page: number = 1;
   episodes: any = [];
   searchData: any = [];
+  error: boolean = false;
   searchtext: string = "";
 
   constructor(
@@ -50,16 +51,31 @@ export class HeaderComponent {
   getCharacters(page: number, name: string) {
     this.page = page;
     this.searchtext = name;
+
     this.APIService.getCharacters(page,name).subscribe(
       (data) => {
+        if (this.error = true) {
+          this.error = false;
+        }
+
         this.dados = data;
-        console.log(this.dados);
+      },
+      
+      (error) => {
+        this.error = true;
+        this.openDialogError(this.error);
+
+        this.APIService.getCharacters(page,'').subscribe(
+          (n) => {
+            this.dados = n;
+          }
+        );
       }
     )
     this.backToTop();
   }
 
-  openDialog(ep: any) {
+  openDialogEpisodes(ep: any) {
     this.Dialog.open(EpisodesDialogComponent, {
       data: {
         episodes: ep
@@ -67,6 +83,11 @@ export class HeaderComponent {
     });
   }
 
+  openDialogError(error: boolean) {
+    if (error == true) {
+      this.Dialog.open(ErrorDialogComponent, {});
+    }
+  }
   statusIcon(status: any) {
     if (status == 'Alive') {
       return 'sentiment_very_satisfied';
@@ -78,5 +99,4 @@ export class HeaderComponent {
 
     return 'sentiment_neutral';
   }
-
 }
