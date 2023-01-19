@@ -70,7 +70,6 @@ export class HeaderComponent {
             this.dados = n;
           }
         );
-
       }
     )
     this.backToTop();
