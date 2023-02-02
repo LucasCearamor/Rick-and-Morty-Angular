@@ -4,6 +4,12 @@
   font-family: 'Ramabhadra', sans-serif;
 }
 
+.search-items {
+  display: flex;
+  flex-direction: row;
+  margin: 2%;
+}
+
 .input-search{
   display: flex;
   flex-direction: row-reverse;

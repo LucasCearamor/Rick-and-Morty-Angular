@@ -18,6 +18,7 @@ import { BackgroundComponent } from './header/background/background.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatInputModule} from '@angular/material/input';
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
     NgbModule,
     MatToolbarModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

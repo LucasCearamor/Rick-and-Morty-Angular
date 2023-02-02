@@ -3,7 +3,23 @@
 
   <p>
     <mat-toolbar class="search">
-      <span>Rick And Morty</span>
+      
+      <span><p>Rick And Morty API</p></span>
+      
+      <span class="material-symbols-outlined search-items">
+        face
+        <button mat-button [matMenuTriggerFor]="menu"><p>Contact Us</p></button>
+        <mat-menu #menu="matMenu">
+          <a href="#" mat-menu-item>Email</a>
+          <a href="#" mat-menu-item>Linkedin</a>
+          <a href="#" mat-menu-item>Telegram</a>
+        </mat-menu>
+      </span>
+
+      <span class="material-symbols-outlined search-items">
+        travel_explore
+        <a href="#"  mat-button><p>Git Hub</p></a>
+      </span>
 
       <mat-form-field class="input-search">
         <mat-label>Search</mat-label>
