@@ -16,7 +16,6 @@ export class EpisodesDialogComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // console.log('data',this.data);
     this.getEpisodes(this.data.episodes);
 
   }

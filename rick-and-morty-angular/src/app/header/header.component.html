@@ -3,7 +3,23 @@
 
   <p>
     <mat-toolbar class="search">
-      <span>Rick And Morty</span>
+      
+      <span><p>Rick And Morty API</p></span>
+      
+      <span class="material-symbols-outlined search-items">
+        face
+        <button mat-button [matMenuTriggerFor]="menu"><p>Contact Us</p></button>
+        <mat-menu #menu="matMenu">
+          <a href="lucas2005dev@gmail.com" mat-menu-item>Email</a>
+          <a href="https://www.linkedin.com/in/lucas-moreira-58b15b254/" mat-menu-item>Linkedin</a>
+          <a href="https://t.me/LucasMoreira1914" mat-menu-item>Telegram</a>
+        </mat-menu>
+      </span>
+
+      <span class="material-symbols-outlined search-items">
+        travel_explore
+        <a href="https://github.com/LucasCearamor/Rick-and-Morty-Angular/"  mat-button><p>Git Hub</p></a>
+      </span>
 
       <mat-form-field class="input-search">
         <mat-label>Search</mat-label>
@@ -28,12 +44,12 @@
               specie: {{d.species}}
             </div>
 
-            <div class="card-subtitle-items {{status(d.status)}}">
+            <div class="card-subtitle-items {{statusCheck(d.status)?.statusPersonagem}}">
               status:
             </div>
 
-            <div class="card-subtitle-items {{status(d.status)}}">
-              <span class="material-symbols-outlined">{{statusIcon(d.status)}}</span>
+            <div class="card-subtitle-items {{statusCheck(d.status)?.statusPersonagem}}">
+              <span class="material-symbols-outlined">{{statusCheck(d.status)?.icon}}</span>
             </div>
           </mat-card-subtitle>
         </mat-card-header>
