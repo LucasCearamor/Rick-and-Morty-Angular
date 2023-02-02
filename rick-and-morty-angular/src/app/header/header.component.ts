@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { APIService } from 'src/app/services/api.service';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { EpisodesDialogComponent } from '../episodes-dialog/episodes-dialog.component';
 import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 
@@ -22,25 +22,29 @@ export class HeaderComponent {
   constructor(
     private APIService: APIService,
     public Dialog: MatDialog,
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getCharacters(this.page, this.searchtext);
   }
 
-  status(status: any) {
-    if (status == 'Alive') {
-      return 'Alive';
-    }
+  public status = [
+    { statusPersonagem: 'Alive', icon: 'sentiment_very_satisfied' },
+    { statusPersonagem: 'Dead', icon: 'sentiment_very_dissatisfied' },
+    { statusPersonagem: 'unknown', icon: 'sentiment_neutral' }
+  ]
 
-    if (status == 'Dead') {
-      return 'Dead';
+  statusCheck(status: string) {
+    for (let i = 0; i < this.status.length; i++) {
+      if (status == this.status[i].statusPersonagem) {
+        return this.status[i];
+      }
     }
-
-    return 'Unknown';
+    return;
   }
 
   backToTop() {
+
     window.scrollTo({
       top: 0,
       left: 0,
@@ -49,10 +53,11 @@ export class HeaderComponent {
   }
 
   getCharacters(page: number, name: string) {
+
     this.page = page;
     this.searchtext = name;
 
-    this.APIService.getCharacters(page,name).subscribe(
+    this.APIService.getCharacters(page, name).subscribe(
       (data) => {
         if (this.error = true) {
           this.error = false;
@@ -60,12 +65,12 @@ export class HeaderComponent {
 
         this.dados = data;
       },
-      
+
       (error) => {
         this.error = true;
         this.openDialogError(this.error);
 
-        this.APIService.getCharacters(page,'').subscribe(
+        this.APIService.getCharacters(page, '').subscribe(
           (n) => {
             this.dados = n;
           }
@@ -84,19 +89,9 @@ export class HeaderComponent {
   }
 
   openDialogError(error: boolean) {
+
     if (error == true) {
       this.Dialog.open(ErrorDialogComponent, {});
     }
-  }
-  statusIcon(status: any) {
-    if (status == 'Alive') {
-      return 'sentiment_very_satisfied';
-    }
-
-    if (status == 'Dead') {
-      return 'sentiment_very_dissatisfied';
-    }
-
-    return 'sentiment_neutral';
   }
 }

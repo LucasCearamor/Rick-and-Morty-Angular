@@ -44,12 +44,12 @@
               specie: {{d.species}}
             </div>
 
-            <div class="card-subtitle-items {{status(d.status)}}">
+            <div class="card-subtitle-items {{statusCheck(d.status)?.statusPersonagem}}">
               status:
             </div>
 
-            <div class="card-subtitle-items {{status(d.status)}}">
-              <span class="material-symbols-outlined">{{statusIcon(d.status)}}</span>
+            <div class="card-subtitle-items {{statusCheck(d.status)?.statusPersonagem}}">
+              <span class="material-symbols-outlined">{{statusCheck(d.status)?.icon}}</span>
             </div>
           </mat-card-subtitle>
         </mat-card-header>
